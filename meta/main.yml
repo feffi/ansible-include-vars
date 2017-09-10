@@ -1,0 +1,12 @@
+---
+galaxy_info:
+  author: Kevin Wennemuth
+  description: Includes custom YAML files from configured path(s).
+  license: MIT
+  min_ansible_version: 2.3
+  platforms:
+  - name: EL
+    versions:
+    - all
+  galaxy_tags: ["ansible", "vars", "helper", "util"]
+dependencies: []

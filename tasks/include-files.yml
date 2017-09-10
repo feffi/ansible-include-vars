@@ -1,0 +1,15 @@
+---
+- name: Checking if directory exists
+  stat:
+    path: "{{ item }}"
+  with_items: "{{ include_vars.paths }}"
+  register: dir
+
+- name: Include all .yaml and .yml files
+  include_vars:
+    dir: "{{ item.item }}"
+    depth: "{{ include_vars.depth }}"
+    extensions: "{{ include_vars.extensions }}"
+    ignore_files: "{{ include_vars.excludes }}"
+  with_items: "{{ dir.results }}"
+  when: item.stat.exists

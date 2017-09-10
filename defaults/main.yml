@@ -1,0 +1,14 @@
+---
+include_vars:
+  # List of local paths to search for YAML files that will be included as Ansible vars.
+  paths:
+    - "{{ inventory_dir }}/.osx-boostrap"
+  # Extension of files to include.
+  extensions:
+    - "yml"
+  # Exclude files matching this names
+  excludes:
+    - "requirements.yml"
+  # Directory depth to used search for files
+  # 1 = only files directly in include_vars_dir_paths
+  depth: 1
