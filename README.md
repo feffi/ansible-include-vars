@@ -6,6 +6,7 @@ Includes custom YAML files from configured path(s).
 
 ## Requirements
 - Ansible 2.3
+
 ### ansible.cfg
 ```
 hash_behaviour = merge
