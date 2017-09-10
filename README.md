@@ -11,6 +11,13 @@ Includes custom YAML files from configured path(s).
 hash_behaviour = merge
 ```
 
+## Install
+Just add the role to your ``requirements.yml`` file:
+```
+- src: https://github.com/feffi/ansible-include-vars-dir.git
+  name: feffi.include-vars-dir
+```
+
 ## Role Variables
 All role based variables are listed below, along with default values:
 ```
