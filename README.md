@@ -5,7 +5,7 @@ Includes custom YAML files from configured path(s).
 [![Build Status](https://travis-ci.org/feffi/ansible-include-vars.svg?branch=master)](https://travis-ci.org/feffi/ansible-include-vars)
 
 ## Requirements
-- Ansible 2.3
+* Ansible 2.3
 
 ### ansible.cfg
 ```
@@ -25,7 +25,7 @@ All role based variables are listed below, along with default values:
 include_vars:
   # List of local paths to search for YAML files that will be included as Ansible vars.
   paths:
-    - "{{ inventory_dir }}/.osx-boostrap"
+    - "{{ inventory_dir }}/.macos-boostrap"
 
   # Extension of files to include.
   extensions:
@@ -49,7 +49,7 @@ None.
         # Include custom vars from defined locations
         include_vars: {
           paths: [
-            "/Users/<USERNAME>/.osx-boostrap"
+            "/Users/<USERNAME>/.macos-boostrap"
           ]
         }
       roles:

@@ -5,7 +5,7 @@
     DEBUG: true
     include_vars: {
       paths: [
-        "/tmp/.osx-bootstrap"
+        "/tmp/.macos-bootstrap"
       ]
     }
   roles:
