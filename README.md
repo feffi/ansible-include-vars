@@ -14,14 +14,14 @@ hash_behaviour = merge
 
 ## Install
 Just add the role to your ``requirements.yml`` file:
-```
+```yaml
 - src: https://github.com/feffi/ansible-include-vars-dir.git
   name: feffi.include-vars-dir
 ```
 
 ## Role Variables
 All role based variables are listed below, along with default values:
-```
+```yaml
 include_vars:
   # List of local paths to search for YAML files that will be included as Ansible vars.
   paths:
@@ -44,6 +44,7 @@ include_vars:
 None.
 
 ## Example Playbook
+```yaml
     - hosts: all
       vars:
         # Include custom vars from defined locations
@@ -54,3 +55,4 @@ None.
         }
       roles:
         - { role: feffi.include-vars }
+```
