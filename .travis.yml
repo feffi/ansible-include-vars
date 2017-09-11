@@ -13,6 +13,8 @@ install:
     - sudo -H pip install -I ansible==2.3.2.0
     - mkdir -p /tmp/roles
     - "{ echo '[defaults]'; echo 'roles_path = ../:/tmp/roles'; } >> ansible.cfg"
+    - mkdir -p /tmp/.osx-bootstrap/
+    - "{ echo 'secret_param: true'; echo 'username: \"foo\"'; } >> /tmp/.osx-bootstrap/secrets.yml"
 
 script:
   - "ansible-playbook -i tests/inventory tests/travis.yml --syntax-check"
