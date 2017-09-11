@@ -9,4 +9,4 @@
       ]
     }
   roles:
-    - { ansible-include-vars }
+    - { role: ansible-include-vars }
