@@ -2,7 +2,7 @@
 
 Includes custom YAML files from configured path(s).
 
-[![Build Status](https://travis-ci.org/feffi/ansible-include-vars.svg?branch=master)](https://travis-ci.org/feffi/ansible-include-vars)
+[![Build Status](https://img.shields.io/travis/feffi/ansible-include-vars.svg)](https://github.com/feffi/ansible-include-vars) [![Ansible Role](https://img.shields.io/ansible/role/3078.svg)](https://github.com/feffi/ansible-include-vars) [![Github All Releases](https://img.shields.io/github/downloads/feffi/ansible-include-vars/total.svg)](https://github.com/feffi/ansible-include-vars) [![GitHub forks](https://img.shields.io/github/forks/badges/shields.svg?style=social&label=Fork)](https://github.com/feffi/ansible-include-vars) [![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Star)](https://github.com/feffi/ansible-include-vars) [![GitHub watchers](https://img.shields.io/github/watchers/badges/shields.svg?style=social&label=Watch)](https://github.com/feffi/ansible-include-vars)
 
 ## Requirements
 * Ansible 2.3
