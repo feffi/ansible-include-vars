@@ -3,13 +3,32 @@
   stat:
     path: "{{ item }}"
   with_items: "{{ include_vars.paths }}"
-  register: dir
+  register: include_vars_dir
 
-- name: Include all .yaml and .yml files
+- set_fact:
+    include_vars_file_pattern: "{{ include_vars.extensions | map('regex_replace', '(.*)', '*.\\1') | join(',') }}"
+
+- name: Searching for files
+  find:
+    paths: "{{ item.item }}"
+    patterns: "{{ include_vars_file_pattern }}"
+  with_items: "{{ include_vars_dir.results }}"
+  when: item.stat.exists
+  register: include_vars_files_search
+  no_log: true
+
+- set_fact:
+    include_vars_files_found: '{{ include_vars_files_search | json_query("results[*].files[*].path") | list }}'
+
+- name: Including the following files
+  debug:
+    msg: "{{ include_vars_files_found }}"
+
+- name: "Include all {{ include_vars_file_pattern }} files"
   include_vars:
     dir: "{{ item.item }}"
     depth: "{{ include_vars.depth }}"
     extensions: "{{ include_vars.extensions }}"
     ignore_files: "{{ include_vars.excludes }}"
-  with_items: "{{ dir.results }}"
+  with_items: "{{ include_vars_dir.results }}"
   when: item.stat.exists

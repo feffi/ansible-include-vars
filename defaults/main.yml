@@ -6,6 +6,7 @@ include_vars:
   # Extension of files to include.
   extensions:
     - "yml"
+    - "json"
   # Exclude files matching this names
   excludes:
     - "requirements.yml"
