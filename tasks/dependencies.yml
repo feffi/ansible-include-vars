@@ -4,6 +4,7 @@
   shell: python -m pip install --upgrade --force pip
 
 - name: Run pip to install dependencies
+  become: true
   pip:
     name: "{{ item }}"
     state: latest
