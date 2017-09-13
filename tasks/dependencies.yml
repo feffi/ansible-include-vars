@@ -1,0 +1,7 @@
+---
+- name: Run pip to install dependencies
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "jmespath"

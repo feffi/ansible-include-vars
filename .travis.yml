@@ -15,6 +15,7 @@ install:
     - "{ echo '[defaults]'; echo 'roles_path = ../:/tmp/roles'; echo 'hash_behaviour=merge'; } >> ansible.cfg"
     - mkdir -p /tmp/.macos-bootstrap/
     - "{ echo 'secret_param: true'; echo 'username: \"foo\"'; } >> /tmp/.macos-bootstrap/secrets.yml"
+    - ansible-galaxy install -f -r tests/requirements.yml -p /tmp/roles
 
 script:
   - "ansible-playbook -i tests/inventory tests/travis.yml --syntax-check"
