@@ -11,8 +11,11 @@ galaxy_info:
   galaxy_tags:
     - ansible
     - vars
+    - osx
+    - macos
     - helper
     - util
+    - import
 dependencies:
   - { role: feffi.macos-homebrew,
       macos_homebrew: {
@@ -20,5 +23,10 @@ dependencies:
           { name: "python" }
         ],
         taps: []
+      }
+    }
+  - { role: feffi.macos-pip,
+      macos_pip: {
+        packages: [ "jmespath" ]
       }
     }

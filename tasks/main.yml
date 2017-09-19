@@ -3,5 +3,4 @@
     msg: "{{ vars[(role_path | basename).split('.')[-1].replace('-','_').replace('ansible_','')] }}"
   when: DEBUG | d() | bool
 
-- include: dependencies.yml
 - include: include-files.yml

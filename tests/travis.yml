@@ -3,10 +3,10 @@
   connection: local
   vars:
     DEBUG: true
-    include_vars: {
+    macos_include_vars: {
       paths: [
         "/tmp/.macos-bootstrap"
       ]
     }
   roles:
-    - { role: ansible-include-vars }
+    - { role: ansible-macos-include-vars }
