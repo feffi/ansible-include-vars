@@ -32,3 +32,4 @@
     ignore_files: "{{ macos_include_vars.excludes }}"
   with_items: "{{ macos_include_vars_dir.results }}"
   when: item.stat.exists
+  no_log: true

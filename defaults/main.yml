@@ -10,6 +10,7 @@ macos_include_vars:
   # Exclude files matching this names
   excludes:
     - "requirements.yml"
+    - ".DS_Store"
   # Directory depth to used search for files
   # 1 = only files directly in include_vars_dir_paths
   depth: 1
