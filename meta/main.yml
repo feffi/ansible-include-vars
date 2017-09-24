@@ -3,7 +3,7 @@ galaxy_info:
   author: Kevin Wennemuth
   description: Ansible role to include custom YAML files from configured path(s).
   license: MIT
-  min_ansible_version: 2.3
+  min_ansible_version: 2.4.0.0
   platforms:
   - name: EL
     versions:
@@ -17,16 +17,16 @@ galaxy_info:
     - util
     - import
 dependencies:
-  - { role: feffi.macos-homebrew,
-      macos_homebrew: {
-        packages: [
-          { name: "python" }
-        ],
-        taps: []
-      }
-    }
-  - { role: feffi.macos-pip,
-      macos_pip: {
-        packages: [ "jmespath" ]
-      }
-    }
+#  - { role: feffi.macos-homebrew,
+#      macos_homebrew: {
+#        packages: [
+#          { name: "python" }
+#        ],
+#        taps: []
+#      }
+#    }
+#  - { role: feffi.macos-pip,
+#      macos_pip: {
+#        packages: [ "jmespath" ]
+#      }
+#    }

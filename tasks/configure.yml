@@ -4,27 +4,10 @@
     path: "{{ item }}"
   with_items: "{{ macos_include_vars.paths }}"
   register: macos_include_vars_dir
+  loop_control:
+    label: "{{ item }}"
 
-- set_fact:
-    macos_include_vars_file_pattern: "{{ macos_include_vars.extensions | map('regex_replace', '(.*)', '*.\\1') | join(',') }}"
-
-- name: Searching for files
-  find:
-    paths: "{{ item.item }}"
-    patterns: "{{ macos_include_vars_file_pattern }}"
-  with_items: "{{ macos_include_vars_dir.results }}"
-  when: item.stat.exists
-  register: macos_include_vars_files_search
-  no_log: true
-
-- set_fact:
-    macos_include_vars_files_found: '{{ macos_include_vars_files_search | json_query("results[*].files[*].path") | list }}'
-
-- name: Including the following files
-  debug:
-    msg: "{{ macos_include_vars_files_found }}"
-
-- name: "Include all {{ macos_include_vars_file_pattern }} files"
+- name: "Include all {{ macos_include_vars.extensions | map('regex_replace', '(.*)', '*.\\1') | join(',') }} files"
   include_vars:
     dir: "{{ item.item }}"
     depth: "{{ macos_include_vars.depth }}"
@@ -32,4 +15,10 @@
     ignore_files: "{{ macos_include_vars.excludes }}"
   with_items: "{{ macos_include_vars_dir.results }}"
   when: item.stat.exists
-  no_log: true
+  register: included
+  loop_control:
+    label: "{{ item.item }}"
+
+- name: Included the following files
+  debug:
+    msg: "{{ included.results.0.ansible_included_var_files }}"
