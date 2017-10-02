@@ -2,6 +2,7 @@
 - name: Checking if directory exists
   stat:
     path: "{{ item }}"
+    follow: true
   with_items: "{{ macos_include_vars.paths }}"
   register: macos_include_vars_dir
   loop_control:
