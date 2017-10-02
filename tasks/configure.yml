@@ -19,6 +19,6 @@
   loop_control:
     label: "{{ item.item }}"
 
-- name: Included the following files
-  debug:
-    msg: "{{ included.results.0.ansible_included_var_files }}"
+#- name: Included the following files
+#  debug:
+#    msg: "{{ included.results.0.ansible_included_var_files }}"
