@@ -13,8 +13,8 @@ install:
     - sudo -H pip install -I ansible==2.4.0.0
     - mkdir -p /tmp/roles
     - "{ echo '[defaults]'; echo 'roles_path = ../:/tmp/roles'; echo 'hash_behaviour=merge'; } >> ansible.cfg"
-    - mkdir -p /tmp/.macos-bootstrap/
-    - "{ echo 'secret_param: true'; echo 'username: \"foo\"'; } >> /tmp/.macos-bootstrap/secrets.yml"
+    - mkdir -p /tmp/.secrets/
+    - "{ echo 'secret_param: true'; echo 'username: \"foo\"'; } >> /tmp/.secrets/secrets.yml"
     - ansible-galaxy install -f -r tests/requirements.yml -p /tmp/roles
 
 script:

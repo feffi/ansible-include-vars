@@ -20,7 +20,7 @@ Just add the role to your ``requirements.yml`` file:
 
 ```yaml
 - src: https://github.com/feffi/ansible-include-vars.git
-  name: feffi.include-vars
+  name: include-vars
 ```
 
 ## Role Variables
@@ -31,7 +31,7 @@ All role based variables are listed below, along with default values:
 macos_include_vars:
   # List of local paths to search for YAML files that will be included as Ansible vars.
   paths:
-    - "{{ inventory_dir }}/.macos-boostrap"
+    - "{{ inventory_dir }}/.secrets"
 
   # Extension of files to include.
   extensions:
@@ -58,9 +58,9 @@ None.
         # Include custom vars from defined locations
         macos_include_vars: {
           paths: [
-            "/Users/<USERNAME>/.macos-boostrap"
+            "/Users/<USERNAME>/.secrets"
           ]
         }
       roles:
-        - { role: feffi.include-vars }
+        - { role: include-vars }
 ```
