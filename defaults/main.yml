@@ -1,8 +1,8 @@
 ---
-macos_include_vars:
+include_vars:
   # List of local paths to search for YAML files that will be included as Ansible vars.
   paths:
-    - "{{ inventory_dir }}/.macos-bootstrap"
+    - "{{ inventory_dir }}/.secrets"
   # Extension of files to include.
   extensions:
     - "yml"

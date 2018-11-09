@@ -3,18 +3,18 @@
   stat:
     path: "{{ item }}"
     follow: true
-  with_items: "{{ macos_include_vars.paths }}"
-  register: macos_include_vars_dir
+  with_items: "{{ include_vars.paths }}"
+  register: include_vars_dir
   loop_control:
     label: "{{ item }}"
 
-- name: "Include all {{ macos_include_vars.extensions | map('regex_replace', '(.*)', '*.\\1') | join(',') }} files"
+- name: "Include all {{ include_vars.extensions | map('regex_replace', '(.*)', '*.\\1') | join(',') }} files"
   include_vars:
     dir: "{{ item.item }}"
-    depth: "{{ macos_include_vars.depth }}"
-    extensions: "{{ macos_include_vars.extensions }}"
-    ignore_files: "{{ macos_include_vars.excludes }}"
-  with_items: "{{ macos_include_vars_dir.results }}"
+    depth: "{{ include_vars.depth }}"
+    extensions: "{{ include_vars.extensions }}"
+    ignore_files: "{{ include_vars.excludes }}"
+  with_items: "{{ include_vars_dir.results }}"
   when: item.stat.exists
   register: included
   loop_control:
