@@ -5,7 +5,7 @@
     DEBUG: true
     macos_include_vars: {
       paths: [
-        "/tmp/.macos-bootstrap"
+        "/tmp/.secrets"
       ]
     }
   roles:
