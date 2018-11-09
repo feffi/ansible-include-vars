@@ -3,7 +3,7 @@
   connection: local
   vars:
     DEBUG: true
-    macos_include_vars: {
+    ansible_include_vars: {
       paths: [
         "/tmp/.secrets"
       ]

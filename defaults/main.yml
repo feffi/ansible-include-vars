@@ -1,8 +1,8 @@
 ---
-include_vars:
+ansible_include_vars:
   # List of local paths to search for YAML files that will be included as Ansible vars.
   paths:
-    - "{{ inventory_dir }}/.secrets"
+    - "{{ lookup('env','PWD') + '/.secrets' }}"
   # Extension of files to include.
   extensions:
     - "yml"
