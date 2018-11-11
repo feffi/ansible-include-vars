@@ -6,7 +6,7 @@ Ansible role to include custom YAML files from configured path(s).
 
 ## Requirements
 
-* Ansible 2.3
+- Ansible 2.3
 
 ### ansible.cfg
 
@@ -20,7 +20,7 @@ Just add the role to your ``requirements.yml`` file:
 
 ```yaml
 - src: https://github.com/feffi/ansible-include-vars.git
-  name: include-vars
+  name: ansible-include-vars
 ```
 
 ## Role Variables
@@ -62,5 +62,5 @@ None.
           ]
         }
       roles:
-        - { role: include-vars }
+        - { role: ansible-include-vars }
 ```
