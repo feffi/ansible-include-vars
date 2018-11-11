@@ -1,28 +1,38 @@
 ---
-- name: Checking if directory exists
-  stat:
-    path: "{{ item }}"
-    follow: true
-  with_items: "{{ ansible_include_vars.paths }}"
-  register: include_vars_dir
-  loop_control:
-    label: "{{ item }}"
-
-- debug:
-    var: include_vars_dir
-  when: DEBUG | d() | bool
+#- name: Checking if directory exists
+#  stat:
+#    path: "{{ item }}"
+#    follow: true
+#  with_items: "{{ ansible_include_vars.paths }}"
+#  register: include_vars_dir
+#  loop_control:
+#    label: "{{ item }}"
+#  become: false
+#  delegate_to: localhost
+#
+#- debug:
+#    var: include_vars_dir
+#  when: DEBUG | d() | bool
+#
+#- name: "Include all {{ ansible_include_vars.extensions | map('regex_replace', '(.*)', '*.\\1') | join(',') }} files"
+#  include_vars:
+#    dir: "{{ item.item }}"
+#    extensions: "{{ ansible_include_vars.extensions }}"
+#    ignore_files: "{{ ansible_include_vars.excludes }}"
+#  with_items: "{{ include_vars_dir.results }}"
+#  when: item.stat.exists
+#  register: included
+#  loop_control:
+#    label: "{{ item.item }}"
 
 - name: "Include all {{ ansible_include_vars.extensions | map('regex_replace', '(.*)', '*.\\1') | join(',') }} files"
   include_vars:
-    dir: "{{ item.item }}"
+    dir: "{{ item }}"
     extensions: "{{ ansible_include_vars.extensions }}"
     ignore_files: "{{ ansible_include_vars.excludes }}"
-  with_items: "{{ include_vars_dir.results }}"
-  when: item.stat.exists
+  with_items: "{{ ansible_include_vars.paths }}"
   register: included
-  loop_control:
-    label: "{{ item.item }}"
 
-#- name: Included the following files
-#  debug:
-#    msg: "{{ included.results.0.ansible_included_var_files }}"
+- name: Included the following files
+  debug:
+    msg: "{{ included.results.0.ansible_included_var_files }}"
